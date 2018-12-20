@@ -1,0 +1,68 @@
+body {
+    background-color: darkcyan;
+}
+
+#pupPics {
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.pupGif-form {
+    background-color: darkcyan;
+    font-size: 25px;
+    font-family: 'Holtwood One SC', serif;
+}
+
+.display-4 {
+    font-size: 40px;
+    font-family: 'Holtwood One SC', serif;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 30px;
+    text-align: center;
+}
+
+.btn {
+    color: darkcyan;
+}
+
+.navbar,
+.jumbotron,
+.pupContainer,
+.gifContainer,
+#footer {
+    font-family: 'Holtwood One SC', serif;
+    
+}
+
+.navbar-brand {
+    font-size: 70px;
+    letter-spacing: 30px;
+    color: darkblue;
+    margin-left: 10px;
+    text-align: center; 
+}
+
+#mapicon {
+    font-size: 6em; 
+    color: darkcyan;
+    float: left;
+}
+
+.pupContainer {
+    font-size: 30px;
+}
+
+.gifContainer {
+    font-size: 30px;
+}
+
+#footer {
+    font-size: 30px;
+}
+
+/* font-family: 'Holtwood One SC', serif;
+font-family: 'Luckiest Guy', cursive;
+font-family: 'Alfa Slab One', cursive; */
