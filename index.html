@@ -3,7 +3,6 @@
 <html lang="en-us">
 
 <head>
-
   <meta charset="UTF-8">
   <title>Project One</title>
 
@@ -19,16 +18,29 @@
 
 
   <!-- CSS Links -->
-  <script src="assets/css/reset.css"></script>
-  <script src="assets/css/style.css"></script>
+  <!-- <link src="assets/css/reset.css"></link> -->
+  <link src="assets/css/style.css"></link>
 
+  <style>
+    /* Set the size of the div element that contains the map */
+    #map {
+    height: 400px;  /* The height is 400 pixels */
+    width: 800px;  /* The width is the width of the web page */
+   }
+  </style>
 </head>
 
 <body>
-
+  <div id="map"></div>
 </body>
 
   <!-- JavaScript -->
-  <script src="assets/javascript/script.js"></script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRjrg9AAPsYYExgfenyhrdUp_szEucXZ4&callback=initMap">
+  </script>
+
+  <script src="assets/javascript/logic.js"></script>
+
+  
 
 </html>
