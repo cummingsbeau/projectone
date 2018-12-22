@@ -63,6 +63,9 @@ body {
     font-size: 30px;
 }
 
+#map {
+    height: 100%;
+}
 /* font-family: 'Holtwood One SC', serif;
 font-family: 'Luckiest Guy', cursive;
 font-family: 'Alfa Slab One', cursive; */

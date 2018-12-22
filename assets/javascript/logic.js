@@ -20,3 +20,15 @@ function initMap() {
   // The marker, positioned at Phoenix
   var marker = new google.maps.Marker({position: Phoenix, map: map});
 };
+
+
+queryURL = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=33.4484,-112.0740&radius=1500&keyword=dog+park&key=' + apiKey;
+
+$.ajax({
+  url: queryURL,
+  method: "GET"
+}).then(function (response) {
+  console.log(response);
+  $('#map').append(response.results[0].name);
+});
+
