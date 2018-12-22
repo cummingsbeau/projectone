@@ -19,4 +19,4 @@ function initMap() {
       document.getElementById('map'), {zoom: 10, center: Phoenix});
   // The marker, positioned at Phoenix
   var marker = new google.maps.Marker({position: Phoenix, map: map});
-}
+};
