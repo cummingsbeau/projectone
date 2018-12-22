@@ -21,6 +21,8 @@ body {
     font-family: 'Holtwood One SC', serif;
     margin-top: 10px;
     margin-bottom: 10px;
+    margin-right: 125px;
+    padding-left: 20px;
     padding-top: 10px;
     text-align: center;
     text-shadow: 4px 4px darkcyan;
@@ -85,6 +87,7 @@ p {
     padding-top: 20px;
     padding-bottom: 20px;
     padding-left: 50px;
+
 }
 
 .gifContainer {
