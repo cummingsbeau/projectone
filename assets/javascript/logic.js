@@ -30,4 +30,6 @@ $.ajax({
   $('#map').append(response.results[0].name);
 });
 
+//modal that only shows if invalid zip code is entered
+$('#myModal').modal();
 
