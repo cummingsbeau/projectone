@@ -102,6 +102,9 @@ p {
     text-shadow: 2px 2px darkcyan;
 }
 
+#map {
+    height: 100%;
+}
 /* font-family: 'Holtwood One SC', serif;
 font-family: 'Luckiest Guy', cursive;
 font-family: 'Alfa Slab One', cursive; */

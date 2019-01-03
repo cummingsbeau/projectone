@@ -3,7 +3,6 @@
 <html lang="en-us">
 
 <head>
-
   <meta charset="UTF-8">
   <title>Project One</title>
 
@@ -25,9 +24,9 @@
   <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Holtwood+One+SC|Luckiest+Guy" rel="stylesheet">
 
   <!-- CSS Links -->
-
-  <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+  <<<<<<< HEAD=======>>>>>>> efb68a5b803364e6598ef397d5d9d757e183d1b8
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 
 </head>
 
@@ -45,8 +44,8 @@
     </button>
 
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Enter Zip Code Here" aria-label="Submit">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
+      <input id="zipinput" class="form-control mr-sm-2" type="text" placeholder="Enter Zip Code Here" aria-label="Submit">
+      <button id="zipsubmit" class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
     </form>
     </div>
   </nav>
@@ -54,11 +53,11 @@
 
   <!--Instructions explaining how users interact with page-->
   <div id="instructions">
-      <p>Welcome, type in your zip code to find local dog parks and current weather for your area!</p>
-    </div>
+    <p>Welcome, type in your zip code to find local dog parks and current weather for your area!</p>
+  </div>
 
-<!--Title bar for Google Map-->
-<div class="titleJumbotron">
+  <!--Title bar for Google Map-->
+  <div class="titleJumbotron">
     <i class="fas fa-map-marked-alt" id="mapicon"></i><span>
       <h1 class="display-4">Dog Park Locations</h1>
     </span>
@@ -68,12 +67,12 @@
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
       <div id="map"></div>
-      </div>
+    </div>
   </div>
   <br>
 
-<!--Title bar for Weather-->
-<div class="titleJumbotron">
+  <!--Title bar for Weather-->
+  <div class="titleJumbotron">
     <i class="fas fa-cloud-sun-rain" id="mapicon"></i><span>
       <h1 class="display-4">Current Weather</h1>
     </span>
@@ -82,7 +81,7 @@
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
       <div id="weather"></div>
-      </div>
+    </div>
   </div>
   <br>
 
@@ -169,6 +168,7 @@
 </body>
 
 <!-- JavaScript -->
-<script src="assets/javascript/script.js"></script>
+<script src="assets/javascript/logic.js"></script>
+
 
 </html>
