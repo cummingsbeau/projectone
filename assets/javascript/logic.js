@@ -9,8 +9,18 @@ var config = {
 };
 firebase.initializeApp(config);
 
+var zip;
+
+$('#zipsubmit').click(function() {
+  event.preventDefault();
+
+  zip = $('#zipinput').val();
+  console.log(zip);
+});
+
 var apiKey = 'AIzaSyBRjrg9AAPsYYExgfenyhrdUp_szEucXZ4';
 
+<<<<<<< HEAD
 function initMap() {
   // The location of Phoenix
   var Phoenix = {lat: 33.4484, lng: -112.0740};
@@ -40,3 +50,16 @@ var submitZip="85020";
         $(".cityName").text("Weather:" + response.list[0].weather.description);
         // console.log(response.main.temp);
       });
+=======
+queryURL = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=33.4484,-112.0740&radius=1500&keyword=dog+park&key=' + apiKey;
+
+$.ajax({
+  url: queryURL,
+  method: "GET"
+}).then(function (response) {
+  console.log(response);
+  $('#map').append(response.results[0].name);
+});
+
+
+>>>>>>> 7253e2840409bb1d61ee14900d066e08df913a56
