@@ -20,3 +20,23 @@ function initMap() {
   // The marker, positioned at Phoenix
   var marker = new google.maps.Marker({position: Phoenix, map: map});
 };
+
+var APIKey = "166a433c57516f51dfab1f7edaed8413";
+var submitZip="85020";
+
+    var queryURL = "https://api.openweathermap.org/data/2.5/forecast?zip="+submitZip+",us&units=imperial&appid="+ APIKey;
+
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    })
+      .then(function(response) {
+        console.log(queryURL);
+        console.log(response);
+        console.log(response.list[0].main.temp_max)
+        $(".cityName").text("Temperature (F) " + response.list[0].main.temp);
+        $(".cityName").text("Maximum Temperature (F) " + response.list[0].main.temp_max);
+        $(".cityName").text("Minimum Temperature (F) " + response.list[0].main.temp_min);
+        $(".cityName").text("Weather:" + response.list[0].weather.description);
+        // console.log(response.main.temp);
+      });
