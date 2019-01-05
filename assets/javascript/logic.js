@@ -64,4 +64,43 @@ $('#zipsubmit').click(function () {
       }
     });
   });
+  var APIKey = "166a433c57516f51dfab1f7edaed8413";
+// var submitZip = $('#zipinput').val();
+var queryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=" + zip + ",us&units=imperial&appid=" + APIKey;
+
+$.ajax({
+  url: queryURL,
+  method: "GET"
+})
+  .then(function (response) {
+    console.log(queryURL);
+    console.log(response);
+    console.log(response.list[0].main.temp_max)
+    $("#weather").append("Temperature (F): " + response.list[0].main.temp+"</br>");
+    $("#weather").append("Maximum Temperature (F): " + response.list[0].main.temp_max+"</br>");
+    $("#weather").append("Minimum Temperature (F): " + response.list[0].main.temp_min+"</br>");
+    $("#weather").append("Weather: " + response.list[0].weather[0].description+"</br>");
+    console.log(queryURL);
+    // console.log(response.main.temp);
+  });
 });
+
+// var APIKey = "166a433c57516f51dfab1f7edaed8413";
+// var submitZip = $('#zipinput').val();
+// var queryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=" + zip + ",us&units=imperial&appid=" + APIKey;
+
+// $.ajax({
+//   url: queryURL,
+//   method: "GET"
+// })
+//   .then(function (response) {
+//     console.log(queryURL);
+//     console.log(response);
+//     console.log(response.list[0].main.temp_max)
+//     $(".cityName").text("Temperature (F) " + response.list[0].main.temp);
+//     $(".cityName").text("Maximum Temperature (F) " + response.list[0].main.temp_max);
+//     $(".cityName").text("Minimum Temperature (F) " + response.list[0].main.temp_min);
+//     $(".cityName").text("Weather:" + response.list[0].weather.description);
+//     // console.log(response.main.temp);
+//   });
+
