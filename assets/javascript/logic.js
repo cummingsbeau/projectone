@@ -74,7 +74,7 @@ $.ajax({
 })
   .then(function (response) {
     
-    // Appends weather data to screen 
+    // Appends weather data to div
     $("#weather").append("Temperature (F): " + response.list[0].main.temp+"</br>");
     $("#weather").append("Maximum Temperature (F): " + response.list[0].main.temp_max+"</br>");
     $("#weather").append("Minimum Temperature (F): " + response.list[0].main.temp_min+"</br>");
