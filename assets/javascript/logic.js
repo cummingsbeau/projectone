@@ -37,7 +37,14 @@ $('#zipsubmit').click(function () {
       method: "GET"
     }).then(function (response) {
       if (response.status == "ZERO_RESULTS") {
-        alert("No parks");
+        $('#parks').html('NO PARKS IN YOUR AREA');
+      }
+      else {
+
+        for (var i = 0; i < response.results.length; i++) {
+          var photo = response.results[i].photos[0].html_attributions[0];
+          $('#parks').append(photo + response.results[i].name + '<br>' + '<br>');
+        }
       }
       console.log(response);
     });
