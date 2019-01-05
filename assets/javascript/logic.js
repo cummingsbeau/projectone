@@ -1,27 +1,5 @@
 // Initialize Firebase
 var config = {
-<<<<<<< HEAD
-    apiKey: "AIzaSyBU1EMgzBxJD5sxWe0T5iIaBQVh3TysXEg",
-    authDomain: "projectone-6b0f1.firebaseapp.com",
-    databaseURL: "https://projectone-6b0f1.firebaseio.com",
-    projectId: "projectone-6b0f1",
-    storageBucket: "",
-    messagingSenderId: "872777787634"
-  };
-  firebase.initializeApp(config);
-//latLon= latatude,longitude. i put it into a variable so we could pull it from the .location feature// 
-  var queryURL = "http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=AdlWTUtuEueaGzMp3Zzqa1y4BkNNtDGV"
-  +locationKey;
-
-  // We then created an AJAX call
-  $.ajax({
-    url: queryURL,
-    method: "GET"
-  }).then(function(response) {
-    $(".key").var ="locationKey";
-    console.log(".key");
-  });
-=======
   apiKey: "AIzaSyBU1EMgzBxJD5sxWe0T5iIaBQVh3TysXEg",
   authDomain: "projectone-6b0f1.firebaseapp.com",
   databaseURL: "https://projectone-6b0f1.firebaseio.com",
@@ -51,7 +29,7 @@ $('#zipsubmit').click(function () {
     lng = response.results[0].geometry.location.lng;
 
     latlng = lat + "," + lng;
-    
+
     var queryURL = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + latlng + '&radius=1500&keyword=dog+park&key=' + apiKey;
 
     $.ajax({
@@ -71,14 +49,43 @@ $('#zipsubmit').click(function () {
       console.log(response);
     });
   });
+  var APIKey = "166a433c57516f51dfab1f7edaed8413";
+// var submitZip = $('#zipinput').val();
+var queryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=" + zip + ",us&units=imperial&appid=" + APIKey;
+
+$.ajax({
+  url: queryURL,
+  method: "GET"
+})
+  .then(function (response) {
+    console.log(queryURL);
+    console.log(response);
+    console.log(response.list[0].main.temp_max)
+    $("#weather").append("Temperature (F): " + response.list[0].main.temp+"</br>");
+    $("#weather").append("Maximum Temperature (F): " + response.list[0].main.temp_max+"</br>");
+    $("#weather").append("Minimum Temperature (F): " + response.list[0].main.temp_min+"</br>");
+    $("#weather").append("Weather: " + response.list[0].weather[0].description+"</br>");
+    console.log(queryURL);
+    // console.log(response.main.temp);
+  });
 });
 
+// var APIKey = "166a433c57516f51dfab1f7edaed8413";
+// var submitZip = $('#zipinput').val();
+// var queryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=" + zip + ",us&units=imperial&appid=" + APIKey;
 
-<<<<<<< HEAD
->>>>>>> 7253e2840409bb1d61ee14900d066e08df913a56
->>>>>>> d7c031fbe5477b792030b6cf346eac5dc1d24b3a
-=======
+// $.ajax({
+//   url: queryURL,
+//   method: "GET"
+// })
+//   .then(function (response) {
+//     console.log(queryURL);
+//     console.log(response);
+//     console.log(response.list[0].main.temp_max)
+//     $(".cityName").text("Temperature (F) " + response.list[0].main.temp);
+//     $(".cityName").text("Maximum Temperature (F) " + response.list[0].main.temp_max);
+//     $(".cityName").text("Minimum Temperature (F) " + response.list[0].main.temp_min);
+//     $(".cityName").text("Weather:" + response.list[0].weather.description);
+//     // console.log(response.main.temp);
+//   });
 
-
-
->>>>>>> 7cf933f236bdf8fa3effa6fc31c0cdfd6709f0aa
