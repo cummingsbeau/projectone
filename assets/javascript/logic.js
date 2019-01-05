@@ -29,7 +29,7 @@ $('#zipsubmit').click(function () {
     lng = response.results[0].geometry.location.lng;
 
     latlng = lat + "," + lng;
-    
+
     var queryURL = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + latlng + '&radius=1500&keyword=dog+park&key=' + apiKey;
 
     $.ajax({
@@ -42,8 +42,12 @@ $('#zipsubmit').click(function () {
       else {
 
         for (var i = 0; i < response.results.length; i++) {
-          var photo = response.results[i].photos[0].html_attributions[0];
-          $('#parks').append(photo + response.results[i].name + '<br>' + '<br>');
+          var address = response.results[i].vicinity;
+          
+          var parkdiv = $('<div>');
+          parkdiv.addClass('parkDisplay');
+          parkdiv.append(response.results[i].name + "<br>" + " address: " + address + "<br>" + '<br>');
+          $('#parks').append(parkdiv);
         }
       }
       console.log(response);
