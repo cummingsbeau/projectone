@@ -65,24 +65,22 @@ $('#zipsubmit').click(function () {
     });
   });
   var APIKey = "166a433c57516f51dfab1f7edaed8413";
-// var submitZip = $('#zipinput').val();
 var queryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=" + zip + ",us&units=imperial&appid=" + APIKey;
 
+// API call to the weather API 
 $.ajax({
   url: queryURL,
   method: "GET"
 })
   .then(function (response) {
-    console.log(queryURL);
-    console.log(response);
-    console.log(response.list[0].main.temp_max)
+    
+    // Appends weather data to screen 
     $("#weather").append("Temperature (F): " + response.list[0].main.temp+"</br>");
     $("#weather").append("Maximum Temperature (F): " + response.list[0].main.temp_max+"</br>");
     $("#weather").append("Minimum Temperature (F): " + response.list[0].main.temp_min+"</br>");
     $("#weather").append("Weather: " + response.list[0].weather[0].description+"</br>");
-    console.log(queryURL);
-    // console.log(response.main.temp);
   });
+
 });
 
 //modal that only shows if invalid zip code is entered
