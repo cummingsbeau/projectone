@@ -102,8 +102,9 @@ p {
     text-shadow: 2px 2px darkcyan;
 }
 
-#map {
-    height: 100%;
+.parkDisplay {
+    margin: 1%;
+    border: solid 2px darkcyan;
 }
 /* font-family: 'Holtwood One SC', serif;
 font-family: 'Luckiest Guy', cursive;
