@@ -4,7 +4,7 @@ var config = {
   authDomain: "projectone-6b0f1.firebaseapp.com",
   databaseURL: "https://projectone-6b0f1.firebaseio.com",
   projectId: "projectone-6b0f1",
-  storageBucket: "",
+  storageBucket: "projectone-6b0f1.appspot.com",
   messagingSenderId: "872777787634"
 };
 firebase.initializeApp(config);
@@ -21,6 +21,19 @@ $('#zipsubmit').click(function () {
   $('#parks').html("");
   // Pulls the value of the input
   zip = $('#zipinput').val();
+
+  //modal that only shows if invalid zip code is entered
+  if (zip.length != 5) {
+    $('#myModal').modal();
+  }
+
+  // var to hold firebase
+  var database = firebase.database();
+
+  // details to be added to firebase
+  database.ref().push({
+    Zip: zip
+  });
 
   // Vars used in calculations
   var geoURL = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + zip + '&key=' + apiKey;
@@ -55,7 +68,7 @@ $('#zipsubmit').click(function () {
 
         for (var i = 0; i < response.results.length; i++) {
           var address = response.results[i].vicinity;
-          
+
           var parkdiv = $('<div>');
           parkdiv.addClass('parkDisplay');
           parkdiv.append(response.results[i].name + "<br>" + " address: " + address + "<br>" + '<br>');
@@ -65,42 +78,40 @@ $('#zipsubmit').click(function () {
     });
   });
   var APIKey = "166a433c57516f51dfab1f7edaed8413";
-var queryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=" + zip + ",us&units=imperial&appid=" + APIKey;
+  var queryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=" + zip + ",us&units=imperial&appid=" + APIKey;
 
-// API call to the weather API 
-$.ajax({
-  url: queryURL,
-  method: "GET"
-})
-  .then(function (response) {
-    
-    // Appends weather data to div
-    $("#weather").append("Temperature (F): " + response.list[0].main.temp+"</br>");
-    $("#weather").append("Maximum Temperature (F): " + response.list[0].main.temp_max+"</br>");
-    $("#weather").append("Minimum Temperature (F): " + response.list[0].main.temp_min+"</br>");
-    $("#weather").append("Weather: " + response.list[0].weather[0].description+"</br>");
-  });
+  // API call to the weather API 
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  })
+    .then(function (response) {
+
+      // Appends weather data to div
+      $("#weather").append("Temperature (F): " + response.list[0].main.temp + "</br>");
+      $("#weather").append("Maximum Temperature (F): " + response.list[0].main.temp_max + "</br>");
+      $("#weather").append("Minimum Temperature (F): " + response.list[0].main.temp_min + "</br>");
+      $("#weather").append("Weather: " + response.list[0].weather[0].description + "</br>");
+    });
 
 });
 
-//modal that only shows if invalid zip code is entered
-$('#myModal').modal();
-// var APIKey = "166a433c57516f51dfab1f7edaed8413";
-// var submitZip = $('#zipinput').val();
-// var queryURL = "https://api.openweathermap.org/data/2.5/forecast?zip=" + zip + ",us&units=imperial&appid=" + APIKey;
+// var for the pie chart
+var zipchart = document.getElementById('ZipChart').getContext('2d');
 
-// $.ajax({
-//   url: queryURL,
-//   method: "GET"
-// })
-//   .then(function (response) {
-//     console.log(queryURL);
-//     console.log(response);
-//     console.log(response.list[0].main.temp_max)
-//     $(".cityName").text("Temperature (F) " + response.list[0].main.temp);
-//     $(".cityName").text("Maximum Temperature (F) " + response.list[0].main.temp_max);
-//     $(".cityName").text("Minimum Temperature (F) " + response.list[0].main.temp_min);
-//     $(".cityName").text("Weather:" + response.list[0].weather.description);
-//     // console.log(response.main.temp);
-//   });
+var chart = new Chart(zipchart, {
 
+  // The type of chart we want to create
+  type: 'bar',
+
+  // The data for our dataset
+  data: {
+      labels: ["85004", "85020", "85355", "85234"],
+      datasets: [{
+          label: "Most Searched Zip Codes",
+          backgroundColor: 'rgb(149, 149, 149)',
+          borderColor: 'rgb(149, 149, 149)',
+          data: [49, 20, 30, 25],
+      }]
+  },
+});
