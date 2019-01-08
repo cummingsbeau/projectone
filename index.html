@@ -7,7 +7,8 @@
   <title>Project One</title>
 
   <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
 
   <!-- Bootstrap CDN-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -24,8 +25,12 @@
   <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Holtwood+One+SC|Luckiest+Guy" rel="stylesheet">
 
   <!-- CSS Links -->
+  
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+
+  <!-- Chart JS CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
 
 </head>
 
@@ -43,30 +48,49 @@
     </button>
 
     <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Enter Zip Code Here" aria-label="Submit"class="submitZip">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" class="submitButton">Submit</button>
+      <input id="zipinput" class="form-control mr-sm-2" type="text" placeholder="Enter Zip Code Here" aria-label="Submit"
+        class="submitZip">
+      <button id="zipsubmit" class="btn btn-outline-success my-2 my-sm-0" type="submit" class="submitButton">Submit</button>
     </form>
     </div>
   </nav>
   <br>
+
+  <!--modal that only shows when an invalid zip code is entered-->
+  <div class="modal" tabindex="-1" role="dialog" id="myModal">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Oops! This zip code is invalid!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Please input a valid 5 digit zip code.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
   <!--Instructions explaining how users interact with page-->
   <div id="instructions">
     <p>Welcome, type in your zip code to find local dog parks and current weather for your area!</p>
   </div>
 
-  <!--Title bar for Google Map-->
+  <!--Title bar for Parks Dispays-->
   <div class="titleJumbotron">
     <i class="fas fa-map-marked-alt" id="mapicon"></i><span>
       <h1 class="display-4">Dog Park Locations</h1>
     </span>
   </div>
 
-  <!-- Jumbotron for google map to be populated -->
+  <!-- Jumbotron for google places to be populated -->
   <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <div id="map"></div>
-    </div>
+    <div id="parks"></div>
   </div>
   <br>
 
@@ -78,10 +102,10 @@
   </div>
   <!-- Jumbotron for google map to be populated -->
   <div class="jumbotron jumbotron-fluid">
-    <div class="container">
       <div id="weather"></div>
+      <br>
+      <canvas id="ZipChart"></canvas>
     </div>
-  </div>
   <br>
 
   <!--Carousel for puppy pics-->
