@@ -19,6 +19,7 @@ $('#zipsubmit').click(function () {
   // Prevents form from submitting and clears previous content
   event.preventDefault();
   $('#parks').html("");
+  $('#weather').html("");
   // Pulls the value of the input
   zip = $('#zipinput').val();
 
